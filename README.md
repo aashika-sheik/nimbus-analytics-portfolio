@@ -1,10 +1,10 @@
 # Nimbus Skincare — Growth Analytics Portfolio
 
-**One fictional D2C skincare brand. Three tools. One growth question answered three ways.**
+**One fictional D2C skincare brand. Four tools. One growth question answered four ways.**
 
 Most portfolios show a random Power BI dashboard, an unrelated Tableau viz, and a generic ML model trained on a Kaggle dataset. This one doesn't. Every project here analyzes the same synthetic 18-month dataset for a fictional D2C brand, **Nimbus Skincare**, built from the ground up in Python to mirror real Shopify/D2C growth marketing data — because that's my actual background (2 years in Shopify growth marketing at Cartrabbit and CornerCart, working with 150+ B2B store owners).
 
-The question across all three projects: **why are we losing customers, and what should we do about it?**
+The question across all four projects: **why are we losing customers, and what should we do about it?**
 
 ---
 
@@ -15,6 +15,8 @@ The question across all three projects: **why are we losing customers, and what 
 2. **~81% of customers churn within 90 days, and retention collapses within the first 2–3 months for nearly every signup cohort** (95%+ month 0 → single digits by month 3). → [Tableau dashboard](./02-tableau-cohort-rfm)
 
 3. **Engagement drop-off — not purchase history, demographics, or acquisition channel — is the single strongest predictor of churn.** A churn model (XGBoost, 0.95 ROC-AUC) with SHAP explainability shows *why* each customer is at risk, mapped to a specific retention action. → [Python/ML project](./03-ml-churn-shap)
+
+4. **Independently verified in raw SQL**: 8 of the top 10 highest-value customers came from Email/Referral or Organic/SEO, and the 34.4% repeat purchase rate is the mirror image of the 81% churn rate found in the ML model. → [SQL project](./04-sql-sales-analysis)
 
 ---
 
@@ -43,9 +45,9 @@ An XGBoost classifier (0.951 ROC-AUC) predicting 90-day churn, with SHAP values 
 - **Per customer** — for each at-risk customer, their top churn driver is mapped to a specific recommended action (e.g. "low engagement → re-engagement email," "low frequency → win-back discount"), turning a prediction into something a marketing team could act on the same day.
 
 ### 4. SQL — Sales & Channel Analysis
-`04-sql-sales-analysis/`
+`04-sql-sales-analysis/sales_analysis.ipynb`
 
-*(In progress)* Raw SQL queries against the same Nimbus dataset — revenue trends, channel performance, and customer-level analysis — proving direct SQL fluency alongside the BI-tool and Python work above.
+The same Nimbus dataset loaded into a real MySQL database and queried directly with raw SQL — JOINs, GROUP BY, subqueries, CASE statements, and date formatting — proving SQL fluency alongside the BI-tool and Python work above. Confirms the same findings independently: the Nov/Dec revenue spike, and Email/Referral & Organic/SEO customers outperforming paid channels on revenue-per-customer (8 of the top 10 highest-value customers came from those two channels). Also measures a **34.4% repeat purchase rate**, the mirror image of the 81% churn rate found in the ML project.
 
 ---
 
